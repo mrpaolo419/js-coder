@@ -67,3 +67,16 @@
 
 //   alert("ah comprado "+cantidadTotal+ " productos y el total es "+precioTotal );
 
+
+// alert(Math.max(23, 11, 45, 3, 9, 76, 98));
+// alert(Math.min(23, 11, 45, 3, 9, 76));
+
+
+// const inicio = new Date();
+// for (let i = 0; i < 1000; i++) {
+//     console.log("Haciendo tiempo");
+// }
+// const final = new Date();
+// console.log("El proceso tardo: " + (final - inicio) + " milisegundos");
+
+
