@@ -80,3 +80,10 @@
 // console.log("El proceso tardo: " + (final - inicio) + " milisegundos");
 
 
+
+// localStorage.setItem("saludo", "hola paolo")
+// localStorage.setItem("Boolean", "false")
+// localStorage.setItem("edad", "36")
+// let mensaje = localStorage.getItem("saludo")
+// alert(mensaje)
+

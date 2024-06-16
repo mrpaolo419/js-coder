@@ -17,7 +17,7 @@ const botas = [
     {nombre:"botineta", precio:45000, color:"negro"},
     {nombre:"botineta", precio:45000, color:"marron"},
 ]
-const sandalia = [
+const sandalias = [
     {nombre:"romana", precio:50000, color:"negro"},
     {nombre:"romana", precio:50000, color:"marron"},
     {nombre:"chatitas", precio:20000, color:"rojo"},
@@ -38,6 +38,56 @@ const zapatillas = [
 
 
 
+
+
+
+// const calzados = botas.concat(sandalia,zapatillas)
+
+
+// const seleccion = () => {
+//     const ncp = calzados.map(bota => "Nombre: " + bota.nombre + ", Color: " + bota.color + ", precio: " + bota.precio);
+//     const resultado = ncp.join("\n");
+//     alert(resultado);
+// }
+// saludar()
+
+// const opciones = ["bota", "sandalia", "zapatillas"],
+
+// const selec = () => { let opcion;
+// do{
+//     let opcion = prompt("ingrese una opcion /N. bota/n. sandalia/n. zapatillas " ) 
+//     switch (opcion) {
+//     case "bota":
+//         break;
+//     case "sandalia":
+//         break
+//     case "zapatillas":
+//         break
+//     default:
+//         alert ("no existe")
+//     }while (!opciones.includes(opcion)) 
+// }
+// }
+
+// const opciones = ["bota", "sandalia", "zapatillas"];
+
+
+
+
+
+
+
+// const calzados = botas.concat(sandalia,zapatillas)
+
+// const elegir = () => { 
+//     for (let i = 0; i <calzados.length; i++) {
+//         alert(calzados[i])
+//     }
+// }
+// elegir()
+
+
+
 let nombre = prompt("pon tu nombre");
 
 let saludar = () => {
@@ -45,21 +95,62 @@ let saludar = () => {
     let comprar = confirm ("deseas comprar algo")
     if (comprar){
         alert("excelente tenemos estos productos")
+        selec()
     }else{
         alert ("no pasa nada para la proxima")
     }
 };
 
-saludar()
 
-const calzados = botas.concat(sandalia,zapatillas)
+const elegirBota = () => {
+    let resultado = ""
+    botas.forEach(bota =>{
+        resultado += "nombre: " + bota.nombre + ", color: " + bota.precio + ", precio " + bota.precio + "\n";
+    })
 
+    alert(resultado)
 
-const seleccion = () => {
-    const ncp = calzados.map(bota => "Nombre: " + bota.nombre + ", Color: " + bota.color + ", precio: " + bota.precio);
-    const resultado = ncp.join("\n");
-    alert(resultado);
 }
 
-seleccion()
 
+const  elegirSandalias = () => {
+    let resultado = ""
+    sandalias.forEach(sandalia =>{
+        resultado += "nombre " + sandalia.nombre + ",precio " + sandalia.precio + ", color " + sandalia.color + "\n" ;});
+
+        alert(resultado)
+    };
+
+    const  elegirZapatillas = () => {
+        let resultado = ""
+        zapatillas.forEach(zapatilla =>{
+            resultado += "nombre " + zapatilla.nombre + ",precio " + zapatilla.precio + ", color " + zapatilla.color + "\n" ;});
+    
+            alert(resultado)
+        };
+
+
+    
+
+const selec = () => {
+    let option;
+    do {
+        option = prompt("Ingrese una opción:\n. bota\n. sandalia\n. zapatillas");
+        
+        switch (option) {
+            case "bota":
+                alert("Seleccionaste bota " + elegirBota() )
+                break;
+            case "sandalia":
+                alert("Seleccionaste bota:/n" + elegirSandalias ())
+                break;
+            case "zapatillas":
+                alert("Seleccionaste bota:/n" + elegirZapatillas());
+                break;
+            default:
+                alert("No existe esa opción");
+        }
+    } while (!opciones.includes(option));
+};
+
+saludar()
