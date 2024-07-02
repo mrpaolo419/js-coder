@@ -1,156 +1,141 @@
 
 
-let producto ="";
-let cantidad = 0;
-let precio = 0; 
-let seguirCompra = false;
-let precioTotal = 0;
-let cantidadTotal = 0;
+// let producto ="";
+// let cantidad = 0;
+// let precio = 0; 
+// let seguirCompra = false;
+// let precioTotal = 0;
+// let cantidadTotal = 0;
 
 
 
-const botas = [
-    {nombre:"bukanera", precio:80000, color:"negro"},
-    {nombre:"bukanera", precio:80000, color:"marron"},
-    {nombre:"texana", precio:50000, color:"negro"},
-    {nombre:"texana", precio:50000, color:"blanco"},
-    {nombre:"botineta", precio:45000, color:"negro"},
-    {nombre:"botineta", precio:45000, color:"marron"},
-]
-const sandalias = [
-    {nombre:"romana", precio:50000, color:"negro"},
-    {nombre:"romana", precio:50000, color:"marron"},
-    {nombre:"chatitas", precio:20000, color:"rojo"},
-    {nombre:"chatitas", precio:20000, color:"beige"},
-    {nombre:"charol", precio:70000, color:"negro"},
-    {nombre:"charol", precio:70000, color:"blanco"},
-]
+// const calzados= [
+//     {nombre:"bukanera", precio:80000, color:"negro"},
+//     {nombre:"bukanera", precio:80000, color:"marron"},
+//     {nombre:"texana", precio:50000, color:"negro"},
+//     {nombre:"texana", precio:50000, color:"blanco"},
+//     {nombre:"botineta", precio:45000, color:"negro"},
+//     {nombre:"botineta", precio:45000, color:"marron"},
+//     {nombre:"romana", precio:50000, color:"negro"},
+//     {nombre:"romana", precio:50000, color:"marron"},
+//     {nombre:"chatitas", precio:20000, color:"rojo"},
+//     {nombre:"chatitas", precio:20000, color:"beige"},
+//     {nombre:"charol", precio:70000, color:"negro"},
+//     {nombre:"charol", precio:70000, color:"blanco"},
+//     {nombre:"urbana", precio:90000, color:"negro"},
+//     {nombre:"urbana", precio:90000, color:"azul"},
+//     {nombre:"tenis", precio:120000, color:"verde"},
+//     {nombre:"tenis", precio:120000, color:"blanco"},
+//     {nombre:"sport", precio:130000, color:"roja"},
+//     {nombre:"sport", precio:130000, color:"blanco"},
+// ]
+// const guardar =(clave, valor) =>{
+//     localStorage.setItem(clave, valor);
+// };
+
+// // guardar("calzados", JSON.stringify(calzados) )
+// // console.log(guardar);
+// const agregar = ((productos, lista) => {
+//     lista.innerHTML="";
+//     productos.forEach(producto =>{
+//         const div = document.createElement("div");
+//         div.innerHTML=`
+//         <div class="productos">
+//             <h4>tipo : ${calzado.nombre}</h4>
+//             <p>precio : ${calzado.precio}<p>
+//             <p>color : ${calzado.color}<p>
+//             <button class="eliminar">eliminar</button>
+//         </div>
+//         `;
+//         lista.appendChild(div);
+
+//     })
+// })
 
 
-const zapatillas = [
-    {nombre:"urbana", precio:90000, color:"negro"},
-    {nombre:"urbana", precio:90000, color:"azul"},
-    {nombre:"tenis", precio:120000, color:"verde"},
-    {nombre:"tenis", precio:120000, color:"blanco"},
-    {nombre:"sport", precio:130000, color:"roja"},
-    {nombre:"sport", precio:130000, color:"blanco"},
-]
+// const lista = document.querySelector("#lista");
+//     calzados.forEach(calzado =>{
+//         const div = document.createElement("div");
 
+//         div.innerHTML=`
+//         <div class="productos">
+//             <h4>tipo : ${calzado.nombre}</h4>
+//             <p>precio : ${calzado.precio}<p>
+//             <p>color : ${calzado.color}<p>
+//             <button class="eliminar">eliminar</button>
+//         </div>
+//         `;
+//     const tipo = document.querySelector(".no");
+//     const precio = document.querySelector(".no2");
+//     const color = document.querySelector(".no1");
 
+//     lista.appendChild(div)
+//     const boton = div.querySelector(".eliminar")
+//     boton.addEventListener("click", (e) =>{
+//         div.remove()
+//     });
+//     });
 
+const form = document.getElementById("ingreso1");
+const tipo = document.getElementById("tipo");
+const precio = document.getElementById("precio");
+const color = document.getElementById("color");
+const contenedor = document.getElementById("lista");
 
+const getRandomId = () => {
 
+    return Math.floor(Math.random() * Date.now()).toString()
 
-// const calzados = botas.concat(sandalia,zapatillas)
-
-
-// const seleccion = () => {
-//     const ncp = calzados.map(bota => "Nombre: " + bota.nombre + ", Color: " + bota.color + ", precio: " + bota.precio);
-//     const resultado = ncp.join("\n");
-//     alert(resultado);
-// }
-// saludar()
-
-// const opciones = ["bota", "sandalia", "zapatillas"],
-
-// const selec = () => { let opcion;
-// do{
-//     let opcion = prompt("ingrese una opcion /N. bota/n. sandalia/n. zapatillas " ) 
-//     switch (opcion) {
-//     case "bota":
-//         break;
-//     case "sandalia":
-//         break
-//     case "zapatillas":
-//         break
-//     default:
-//         alert ("no existe")
-//     }while (!opciones.includes(opcion)) 
-// }
-// }
-
-// const opciones = ["bota", "sandalia", "zapatillas"];
-
-
-
-
-
-
-
-// const calzados = botas.concat(sandalia,zapatillas)
-
-// const elegir = () => { 
-//     for (let i = 0; i <calzados.length; i++) {
-//         alert(calzados[i])
-//     }
-// }
-// elegir()
-
-
-
-let nombre = prompt("pon tu nombre");
-
-let saludar = () => {
-    alert("hola " + nombre)
-    let comprar = confirm ("deseas comprar algo")
-    if (comprar){
-        alert("excelente tenemos estos productos")
-        selec()
-    }else{
-        alert ("no pasa nada para la proxima")
-    }
 };
 
-
-const elegirBota = () => {
-    let resultado = ""
-    botas.forEach(bota =>{
-        resultado += "nombre: " + bota.nombre + ", color: " + bota.precio + ", precio " + bota.precio + "\n";
-    })
-
-    alert(resultado)
-
-}
-
-
-const  elegirSandalias = () => {
-    let resultado = ""
-    sandalias.forEach(sandalia =>{
-        resultado += "nombre " + sandalia.nombre + ",precio " + sandalia.precio + ", color " + sandalia.color + "\n" ;});
-
-        alert(resultado)
+const agregar = (gId, gTipo, gPrecio, gColor) => {
+    return{
+        id: gId,
+        Tipo: gTipo,
+        Precio : gPrecio,
+        Color: gColor 
     };
-
-    const  elegirZapatillas = () => {
-        let resultado = ""
-        zapatillas.forEach(zapatilla =>{
-            resultado += "nombre " + zapatilla.nombre + ",precio " + zapatilla.precio + ", color " + zapatilla.color + "\n" ;});
-    
-            alert(resultado)
-        };
-
-
-    
-
-const selec = () => {
-    let option;
-    do {
-        option = prompt("Ingrese una opción:\n. bota\n. sandalia\n. zapatillas");
-        
-        switch (option) {
-            case "bota":
-                alert("Seleccionaste bota " + elegirBota() )
-                break;
-            case "sandalia":
-                alert("Seleccionaste bota:/n" + elegirSandalias ())
-                break;
-            case "zapatillas":
-                alert("Seleccionaste bota:/n" + elegirZapatillas());
-                break;
-            default:
-                alert("No existe esa opción");
-        }
-    } while (!opciones.includes(option));
 };
 
-saludar()
+
+
+
+
+
+const mandar = (mando) =>{
+    
+    const div = document.createElement("div");
+    div.className = "productos";
+    div.id = `producto-${mando.id}`
+    div.innerHTML=`
+        <div class="productos">
+            <h4>tipo : ${mando.Tipo}</h4>
+            <p>precio : ${mando.Precio}<p>
+            <p>color : ${mando.Color}<p>
+            <button class="eliminar" id="${mando.id}">eliminar</button>
+        </div>
+        `;
+        const boton = div.querySelector(".eliminar");
+        boton.addEventListener("click", () => div.remove())    
+    
+        
+    lista.appendChild(div)
+};
+
+
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    
+    const id = getRandomId();
+    const nTipo = tipo.value;
+    const nPrecio = precio.value;
+    const nColor = color.value;
+    
+    
+    const mando = agregar(id, nTipo, nPrecio, nColor);
+    mandar(mando)
+    form.reset();
+});
+
+
