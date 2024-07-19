@@ -1,0 +1,98 @@
+
+
+.menuGeneral{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    background-color: violet;
+    padding-right: 0;
+}
+aside{
+    display:flex ;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-right: 0;
+    color:black;     
+    position:sticky;
+    top: 0;
+    height: 100vh;
+    
+    
+    header{
+        
+        font-size: 35px;
+        span{
+            font-size: 50px ;
+            height: 100%;
+        }
+    }
+    .iconos{
+        font-size: 30px;
+        margin: 30px;
+        color: white;
+        display: flex;
+        gap: 30px;
+    }
+    li{
+        list-style-type: none;
+    }
+    lu{
+        display: flex;
+        gap: 500px;
+        
+    
+    }
+
+
+    
+    
+    .botonMenuActivo,.botonIndividuales, .botonTurnos, .botonEmpleados {
+        background-color: transparent;
+        border: 0;
+        color:white;        
+        gap: 2rem;
+        font-size: 25px;
+    
+    
+    }
+    .botonMenuActivo{
+        background-color: white;
+        color:violet;
+        width: 100% ;
+        border: 0;
+    }
+    .active {
+        background-color: #f0f0f0; /* Color de fondo para el botón activo */
+    }
+
+    
+
+    
+}
+
+main{
+    background-color: white;
+
+    padding: 8px;
+    border-radius: 20px ;
+}
+
+.personal {
+    display: grid;
+    
+    grid-template-columns: repeat(3, 250px);
+    background-color: white;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    
+
+    img{
+    
+    width: 200px;
+    height: 180px;
+    }
+    h2{
+        font-size: 25px;
+    }
+}

@@ -1,33 +1,80 @@
-
-
-/* #lista{
-    display: flex;
-    justify-content: space-around;
-    border-color: black;
-    border: 1px solid gray;
-    border-radius: 5px;
-} */
-h1{
-    text-align: center;
+@charset "UTF-8";
+.menuGeneral {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  background-color: violet;
+  padding-right: 0;
 }
 
-#ingreso1{
-    text-align: center;
+aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-right: 0;
+  color: black;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+aside header {
+  font-size: 35px;
+}
+aside header span {
+  font-size: 50px;
+  height: 100%;
+}
+aside .iconos {
+  font-size: 30px;
+  margin: 30px;
+  color: white;
+  display: flex;
+  gap: 30px;
+}
+aside li {
+  list-style-type: none;
+}
+aside lu {
+  display: flex;
+  gap: 500px;
+}
+aside .botonMenuActivo, aside .botonIndividuales, aside .botonTurnos, aside .botonEmpleados {
+  background-color: transparent;
+  border: 0;
+  color: white;
+  gap: 2rem;
+  font-size: 25px;
+}
+aside .botonMenuActivo {
+  background-color: white;
+  color: violet;
+  width: 100%;
+  border: 0;
+}
+aside .active {
+  background-color: #f0f0f0; /* Color de fondo para el botón activo */
 }
 
-#lista{
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    flex-direction: column;
-    
-
+main {
+  background-color: white;
+  padding: 8px;
+  border-radius: 20px;
 }
-.productos{
-    display: flex;
-    
-    justify-content: center;
-    border: 1px solid gray;
-    padding: 0px;
-    width: 800px;
-    }
+
+.personal {
+  display: grid;
+  grid-template-columns: repeat(3, 250px);
+  background-color: white;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}
+.personal img {
+  width: 200px;
+  height: 180px;
+}
+.personal h2 {
+  font-size: 25px;
+}
+
+/*# sourceMappingURL=estilo.css.map */
