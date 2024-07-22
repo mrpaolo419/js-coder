@@ -9,7 +9,7 @@
 </head>
 <body>
   <div class="menuGeneral">
-    <aside>
+    <!-- <aside>
       <header>
         LUIS & <br><span>GOMEZ</span>
         
@@ -23,25 +23,37 @@
       </div>
       <nav>
         <ul>
-          <li><button class="botonMenu botones-select"><i class="fa-solid fa-burger"></i> menu </button></li>
-          <li><button class="botonIndividuales botones-select"><i class="fa-solid fa-bowl-food"></i> individuales </button></li>
-          <li><button class="botonTurnos botones-select"><i class="fa-solid fa-users"></i> turnos</button></li>
-          <li><button id="personal" class="botonEmpleados botones-select"><i class="fa-solid fa-id-card"></i> empleados</button></li>
+          <li><button class="botones-select" id="menu"><i class="fa-solid fa-burger"></i> Menú</button></li>
+          <li><button class="botones-select" id="individuales"><i class="fa-solid fa-bowl-food"></i> Individuales</button></li>
+          <li><button class="botones-select" id="turnos"><i class="fa-solid fa-users"></i> Turnos</button></li>
+          <li><button class="botones-select" id=""><i class="fa-solid fa-id-card"></i> Empleados</button></li>
         </ul>
       </nav>
       <footer>
         <p>© paolo coca para coderhouse</p>
       </footer>
-    </aside>
+    </aside> -->
 
     <main class="mover">
       <h1>Menús por Régimen</h1>
-          <button >generl</button>
-          <button >Hepatoprotector</button>
-          <button >Hipertenso</button>
-          <button >Diabético</button>
-          <button >Celíaco</button>
-          <button >Vegetariano</button>
+      <section class="botones">
+      <button id="menu1">menu 1</button>
+      <button id="menu2">menu 2</button>
+      <button id="menu3">menu 3</button>
+      <button id="menu4">menu 4</button>
+      <button id="menu5">menu 5</button>
+      <button id="menu6">menu 6</button>
+      <button id="menu7">menu 7</button>
+      <button id="menu8">menu 8</button>
+      <button id="menu9">menu 1 inv</button>
+      <button id="menu10">menu 2 inv</button>
+      <button id="menu11">menu 3 inv</button>
+      <button id="menu12">menu 4 inv</button>
+      <button id="menu13">menu 5 inv</button>
+      <button id="menu14">menu 6 inv</button>
+      <button id="menu15">menu 7 inv</button>
+      <button id="menu16">menu 8 inv</button>
+    </section>
       <table id="menusRegimen">
         <thead>
             <tr>
@@ -52,33 +64,37 @@
                 <th>Régimen</th>
             </tr>
         </thead>
-        <!-- <tr>
-          <th class="menu">menu</th>
-          <th class="menu-general">regimen general</th>
-          <th class="menu-3">regimen 3</th>
-          <th class="menu-hipo">regimen hipo</th>
-          <th class="menu-5">regimen 5</th>
-          <th class="menu-vegetariano">regimen vegetariano</th>
-          <th class="menu-celiaco">regimen celiaco</th>
-        </tr>
-        <tr>
-          <td class="plata">entrada <br> principal <br> postre</td>
-          <td class="plato-regimen1">sopa <br> lasaña <br> manzana</td>
-          <td class="plato-regimen3">sopa <br> lasaña <br> manzana</td>
-          <td class="plato-regimen-hipo">sopa <br> lasaña <br> manzana</td>
-          <td class="plato-regimen5">sopa <br> lasaña <br> manzana</td>
-          <td class="plato-regimen-veg">sopa <br> lasaña <br> manzana</td>
-          <td class="plato-regimen-celi">sopa <br> lasaña <br> manzana</td>
-        </tr> -->
+        <tbody id="menuTableBody">
+          <!-- Las filas de la tabla se agregarán aquí -->
+      </tbody>
+      
       </table>
-      <section class="indi">
-        <h2>registro de individuales</h2>
+      <form id="indi">
         <input type="text" class="indi-nombre" placeholder="nombre completo">
+        <input type="text" class="indi-sala" placeholder="nombre de sala">
+        <input type="number" class="indi-cama" placeholder="numero de cama">
         <input type="text" class="indi-entrada" placeholder="entrada">
         <input type="text" class="indi-principal" placeholder="principal">
         <input type="text" class="indi-postre" placeholder="postre">
-        <button class="agregar-indi">agregar</button>
-      </section>
+        <button type="submit" class="agregar-indi">agregar</button>
+    </form>
+      <table id="individuales">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Sala</th>
+            <th>Cama</th>
+            <th>Entrada</th>
+            <th>Principal</th>
+            <th>Postre</th>
+          </tr>
+        </thead>
+        <tbody id="indiPreparados">
+          <!-- Las filas de la tabla se agregarán aquí -->
+        </tbody>
+      </table>
+
+
       <div id="contenedorPersonal" class="personal">
         
       </div>
@@ -88,7 +104,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/5baa6017d5.js" crossorigin="anonymous"></script>
-  <script src="ejercio.js"></script>
+  <script src="arrays.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

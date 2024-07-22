@@ -1,80 +1,101 @@
-@charset "UTF-8";
-.menuGeneral {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  background-color: violet;
-  padding-right: 0;
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
 }
 
-aside {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding-right: 0;
-  color: black;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-}
-aside header {
-  font-size: 35px;
-}
-aside header span {
-  font-size: 50px;
-  height: 100%;
-}
-aside .iconos {
-  font-size: 30px;
-  margin: 30px;
-  color: white;
-  display: flex;
-  gap: 30px;
-}
-aside li {
-  list-style-type: none;
-}
-aside lu {
-  display: flex;
-  gap: 500px;
-}
-aside .botonMenuActivo, aside .botonIndividuales, aside .botonTurnos, aside .botonEmpleados {
-  background-color: transparent;
-  border: 0;
-  color: white;
-  gap: 2rem;
-  font-size: 25px;
-}
-aside .botonMenuActivo {
-  background-color: white;
-  color: violet;
-  width: 100%;
-  border: 0;
-}
-aside .active {
-  background-color: #f0f0f0; /* Color de fondo para el botón activo */
-}
-
-main {
-  background-color: white;
-  padding: 8px;
-  border-radius: 20px;
-}
-
-.personal {
-  display: grid;
-  grid-template-columns: repeat(3, 250px);
-  background-color: white;
-  gap: 1rem;
-  align-items: center;
-  justify-content: space-around;
+h1 {
   text-align: center;
+  color: #3498db;
+  margin-top: 16px;
 }
-.personal img {
-  width: 200px;
-  height: 180px;
+
+main.mover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 16px;
 }
-.personal h2 {
-  font-size: 25px;
+
+button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: #2980b9;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+}
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+table th {
+  background-color: #3498db;
+  color: #fff;
+}
+
+form#indi {
+  margin: 16px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+form#indi input[type=text], form#indi input[type=number] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+form#indi button.agregar-indi {
+  background-color: #2ecc71;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+form#indi button.agregar-indi:hover {
+  background-color: #27ae60;
+}
+
+@media (max-width: 768px) and (max-width: 768px) {
+  table {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+  }
+}
+@media (max-width: 768px) {
+  form#indi input[type=text], form#indi input[type=number] {
+    width: calc(100% - 20px);
+  }
+}
+.botones {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+#indi {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas */
 }
 
 /*# sourceMappingURL=estilo.css.map */
