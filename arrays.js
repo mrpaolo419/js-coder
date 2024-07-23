@@ -138,3 +138,103 @@ const empleados = [
 { id: 3006, nombre: 'Veronica Peña', categoria: 'peon', turno: 'tarde', imagen: './imagenes/peones.png' },
 { id: 3007, nombre: 'Hector Castro', categoria: 'peon', turno: 'tarde', imagen: './imagenes/peones.png' }
 ];
+
+
+const agregar = document.querySelector("#indi");
+// let platosIndi = [];
+
+// const getRandomId = () => {
+//     return Math.floor(Math.random() * 9000) + 1000; 
+// };
+
+// agregar.addEventListener('submit', (e) => {
+//     e.preventDefault();
+
+//     const idIndi = getRandomId();
+//     const nombreIndi = nombre.value;
+//     const salaIndi = sala.value;
+//     const camaIndi = cama.value;
+//     const entradaIndi = entrada.value;
+//     const principalIndi = principal.value;
+//     const postreIndi = postre.value;
+
+//     const indiCreado = crearIndi(idIndi, nombreIndi, salaIndi, camaIndi, entradaIndi, principalIndi, postreIndi);
+//     agregarIndi(indiCreado);
+
+//     agregar.reset();
+// });
+
+// const crearIndi = (indiId, indiNombre, indiSala, indiCama, indiEntrada, indiPrincipal, indiPostre) => {
+//     return {
+//         id: indiId,
+//         nombre: indiNombre,
+//         sala: indiSala,
+//         cama: indiCama,
+//         entrada: indiEntrada, // Añadir campo 'entrada'
+//         principal: indiPrincipal,
+//         postre: indiPostre
+//     };
+// };
+
+// const agregarIndi = (indiCreado) => {
+//     const row = document.createElement("tr");
+
+//     row.innerHTML = `
+//         <td>${indiCreado.nombre}</td>
+//         <td>${indiCreado.sala}</td>
+//         <td>${indiCreado.cama}</td>
+//         <td>${indiCreado.entrada}</td>
+//         <td>${indiCreado.principal}</td>
+//         <td>${indiCreado.postre}</td>
+//         <td><button class="eliminar" data-id="${indiCreado.id}">eliminar</button></td>
+//     `;
+//     preparados.appendChild(row);
+
+//     platosIndi.push(indiCreado);
+//     guardarIndi(platosIndi);
+// };
+
+// const verIndi = () => {
+//     platosIndi = mostrarIndi();
+//     preparados.innerHTML = "";
+//     platosIndi.forEach((platoIndi) => {
+//         const row = document.createElement("tr");
+//         row.innerHTML = `
+//             <td>${platoIndi.nombre}</td>
+//             <td>${platoIndi.sala}</td>
+//             <td>${platoIndi.cama}</td>
+//             <td>${platoIndi.entrada}</td>
+//             <td>${platoIndi.principal}</td>
+//             <td>${platoIndi.postre}</td>
+//             <td><button class="eliminar" data-id="${platoIndi.id}">eliminar</button></td>
+//         `;
+//         preparados.appendChild(row);
+//     });
+// };
+
+// document.addEventListener('DOMContentLoaded', verIndi);
+
+// const eliminarIndi = (idindividual) => {
+//     platosIndi = platosIndi.filter(indi => indi.id !== parseInt(idindividual));
+//     guardarIndi(platosIndi);
+//     verIndi(); 
+// };
+
+// preparados.addEventListener("click", (e) => {
+//     if (e.target.classList.contains("eliminar")) {
+//         eliminarIndi(e.target.getAttribute("data-id"));
+//     }
+// });
+
+// const guardarIndi = (platosIndi) => {
+//     localStorage.setItem('platosIndi', JSON.stringify(platosIndi));
+// };
+
+// const mostrarIndi = () => {
+//     const platosIndiJSON = localStorage.getItem("platosIndi");
+//     if (platosIndiJSON) {
+//         return JSON.parse(platosIndiJSON);
+//     } else {
+//         return [];
+//     }
+// };

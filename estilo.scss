@@ -1,89 +1,89 @@
 // Mixins
 @mixin center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @mixin responsive-table {
-    @media (max-width: 768px) {
-    width: 100%;
-    overflow-x: auto;
-    display: block;
-    }
+  @media (max-width: 768px) {
+      width: 100%;
+      overflow-x: auto;
+      display: block;
   }
-  
-  // Estilos globales
-  body {
-    font-family: Arial, sans-serif;
-    color: #333;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #3498db;
-    margin-top: 16px;
-  }
-  
-  // Main container
-  main.mover {
-    @include center;
-    flex-direction: column;
-    padding: 16px;
-  }
-  
-  // Botones
-  button {
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  
-    &:hover {
+}
+
+// Estilos globales
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #3498db;
+  margin-top: 16px;
+}
+
+// Main container
+main.mover {
+  @include center;
+  flex-direction: column;
+  padding: 16px;
+}
+
+// Botones
+button {
+  background-color: brown;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
       background-color: #2980b9;
-    }
   }
-  
-  // Tablas
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 16px 0;
-    
-    th, td {
+}
+
+// Tablas
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+
+  th, td {
       border: 1px solid #ddd;
       padding: 8px;
       text-align: left;
-    }
-    
-    th {
+  }
+
+  th {
       background-color: #3498db;
       color: #fff;
-    }
   }
-  
-  // Formulario
-  form#indi {
-    margin: 16px 0;
-    @include center;
-    flex-direction: column;
-    
-    input[type="text"], input[type="number"] {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 16px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-    }
-    
-    button.agregar-indi {
+}
+
+// Formulario
+form#indi {
+  margin: 16px 0;
+  @include center;
+  flex-direction: column;
+
+  input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 16px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+  }
+
+  button.agregar-indi {
       background-color: #2ecc71;
       color: #fff;
       padding: 10px 20px;
@@ -91,33 +91,37 @@
       border-radius: 4px;
       cursor: pointer;
       transition: background-color 0.3s ease;
-  
+
       &:hover {
-        background-color: #27ae60;
+          background-color: #27ae60;
       }
-    }
   }
-  
-  // Responsividad
-  @media (max-width: 768px) {
-    table {
+}
+
+// Responsividad
+@media (max-width: 768px) {
+  table {
       @include responsive-table;
-    }
-  
-    form#indi {
-      input[type="text"], input[type="number"] {
-        width: calc(100% - 20px);
-      }
-    }
   }
 
-.botones{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+  form#indi {
+      input[type="text"], input[type="number"] {
+          width: calc(100% - 20px);
+      }
+  }
+}
 
+// Espacio adicional para #indiPreparados
+#indiPreparados {
+  margin-bottom: 200px; // Ajusta este valor según sea necesario
+}
+
+.botones {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 #indi {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas */
 }

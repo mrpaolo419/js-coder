@@ -34,6 +34,9 @@ for (let i = 1; i <= 16; i++) {
 window.addEventListener('load', () => mostrarLista(1));
 
 
+
+window.addEventListener("load", ()=>{
+
 const nombre = document.querySelector(".indi-nombre");
 const sala = document.querySelector(".indi-sala");
 const cama = document.querySelector(".indi-cama");
@@ -41,16 +44,17 @@ const entrada = document.querySelector(".indi-entrada");
 const principal = document.querySelector(".indi-principal");
 const postre = document.querySelector(".indi-postre");
 const preparados = document.querySelector("#indiPreparados");
-
-const agregar = document.querySelector("#indi");
-let platosIndi = [];
+const indi = document.querySelector("#indi");
 
 const getRandomId = () => {
     return Math.floor(Math.random() * 9000) + 1000; 
 };
 
-agregar.addEventListener('submit', (e) => {
-    e.preventDefault();
+let = data = JSON.parse(localStorage.getItem("formdata")) || []
+
+indi.addEventListener("submit", (e)=>{
+    e.preventDefault()
+
 
     const idIndi = getRandomId();
     const nombreIndi = nombre.value;
@@ -59,94 +63,102 @@ agregar.addEventListener('submit', (e) => {
     const entradaIndi = entrada.value;
     const principalIndi = principal.value;
     const postreIndi = postre.value;
+
+
+
     
-    const indiCreado = crearIndi(idIndi, nombreIndi, salaIndi, camaIndi, entradaIndi, principalIndi, postreIndi);
-    agregarIndi(indiCreado);
+    if(idIndi && nombreIndi && salaIndi && camaIndi && entradaIndi && principalIndi && postreIndi){
+        const nuevaData = { idIndi, nombreIndi, salaIndi, camaIndi, entradaIndi, principalIndi, postreIndi };
+        data.push(nuevaData);
+        guardarEnLocal();
+        renderIndi();
+        indi.reset();
 
-    agregar.reset();
+    }else {
+        alert ("pone algo ")
+    }
+
 });
 
-const crearIndi = (indiId, indiNombre, indiSala, indiCama, indiPrincipal, indiPostre) => {
-    return {
-        id: indiId,
-        nombre: indiNombre,
-        sala: indiSala,
-        cama: indiCama,
-        principal: indiPrincipal,
-        postre: indiPostre
-    };
-};
+const renderIndi = () => {
+    preparados.innerHTML =""
 
-const agregarIndi = (indiCreado) => {
-    const row = document.createElement("tr");
-
-    row.innerHTML = `
-        <td>${indiCreado.nombre}</td>
-        <td>${indiCreado.sala}</td>
-        <td>${indiCreado.cama}</td>
-        <td>${indiCreado.entrada}</td>
-        <td>${indiCreado.principal}</td>
-        <td>${indiCreado.postre}</td>
-        <td><button class="eliminar" id="${indiCreado.id}">eliminar</button></td>
-    `;
-    preparados.appendChild(row);
-
-    platosIndi.push(indiCreado);
-    guardarIndi(platosIndi);
-};
-
-const verIndi = () => {
-    platosIndi = mostrarIndi(); 
-    preparados.innerHTML = "";
-    platosIndi.forEach((platoIndi) => {
+    data.forEach((item, index ) => {
         const row = document.createElement("tr");
-        row.innerHTML = `
-            <td>${platoIndi.nombre}</td>
-            <td>${platoIndi.sala}</td>
-            <td>${platoIndi.cama}</td>
-            <td>${platoIndi.entrada}</td>
-            <td>${platoIndi.principal}</td>
-            <td>${platoIndi.postre}</td>
-            <td><button class="eliminar" id="${platoIndi.id}">eliminar</button></td>
-        `;
-        preparados.appendChild(row);
-    });
-};
-
-document.addEventListener('DOMContentLoaded', verIndi);
-
-const eliminarIndi = (idindividual) => {
-    platosIndi = platosIndi.filter(indi => indi.id !== parseInt(idindividual));
-    verIndi(); 
-    guardarIndi(platosIndi); 
-};
-
-document.addEventListener('DOMContentLoaded', verIndi);
-
-preparados.addEventListener("click", (e) => {
-    if (e.target.classList.contains("eliminar")) {
-        eliminarIndi(e.target.id);
-    }
-});
+        const idCelda =document.createElement("td");
+        const nombreCelda =document.createElement("td");
+        const salaCelda =document.createElement("td");
+        const camaCelda =document.createElement("td");
+        const entradaCelda =document.createElement("td");
+        const principalCelda =document.createElement("td");
+        const postreCelda =document.createElement("td");
+        const editar =document.createElement("button");
+        const eliminar =document.createElement("button");
 
 
+        idCelda.textContent = item.idIndi;
+        nombreCelda.textContent = item.nombreIndi;
+        salaCelda.textContent = item.salaIndi;
+        camaCelda.textContent = item.camaIndi;
+        entradaCelda.textContent = item.entradaIndi;
+        principalCelda.textContent = item.principalIndi;
+        postreCelda.textContent = item.postreIndi;
+        editar.textContent = "editar"
+        editar.addEventListener("click", function(){
+            editarData(index);
+        })
+
+        eliminar.textContent = "eliminar"
+        eliminar.addEventListener("click", function(){
+            eliminarData(index);
+        })
 
 
-const guardarIndi = (platosIndi) => {
-    localStorage.setItem('platosIndi', JSON.stringify(platosIndi));
-};
+        row.appendChild(idCelda);
+        row.appendChild(nombreCelda);
+        row.appendChild(salaCelda);
+        row.appendChild(camaCelda);
+        row.appendChild(entradaCelda);
+        row.appendChild(principalCelda);
+        row.appendChild(postreCelda);
+        row.appendChild(editar);
+        row.appendChild(eliminar);
 
-const mostrarIndi = () => {
-    const platosIndiJSON = localStorage.getItem("platosIndi");
-    if (platosIndiJSON) {
-        return JSON.parse(platosIndiJSON);
-    } else {
-        return []; 
-    }
-};
+        preparados.appendChild(row)
+        
+    })
+}
 
-const indiEstage = guardarIndi()
+const editarData = (index) =>{
+    const item = data[index];
+    
+    nombre.value = item.nombreIndi;
+    sala.value = item.salaIndi;
+    cama.value = item.camaIndi;
+    entrada.value = item.entradaIndi;
+    principal.value = item.principalIndi;
+    postre.value = item.postreIndi;
+
+    data.splice(index, 1);
+    renderIndi()
+    guardarEnLocal()
+
+}
+
+const eliminarData = (index)=>{
+    data.splice(index, 1 )
+    guardarEnLocal()
+    renderIndi()
+}
+
+renderIndi()
+
+
+const guardarEnLocal = ()=> {
+    localStorage.setItem("formdata",JSON.stringify(data));
+
+}
 
 
 
-
+})
