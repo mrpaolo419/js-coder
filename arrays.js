@@ -140,7 +140,7 @@ const empleados = [
 ];
 
 
-const agregar = document.querySelector("#indi");
+
 // let platosIndi = [];
 
 // const getRandomId = () => {

@@ -8,23 +8,33 @@ if (!localStorage.getItem("comida")) {
 localStorage.setItem("comida", JSON.stringify(menus));
 }
 
-function mostrarLista(regimenId) {
-    const menusGuardados = JSON.parse(localStorage.getItem("comida"));
-    const menusFiltrados = menusGuardados.filter(menu => menu.id === regimenId);
-    const menuTableBody = document.querySelector("#menuTableBody");
-    menuTableBody.innerHTML = "";
-menusFiltrados.forEach(menu => {
-    const row = document.createElement("tr");
-    row.innerHTML = `
-    <td>${menu.id}</td>
-    <td>${menu.entrada}</td>
-    <td>${menu.principal}</td>
-    <td>${menu.postre}</td>
-    <td>${menu.regimen}</td>
-    `;
-    menuTableBody.appendChild(row);
-});
-}
+async function mostrarLista(regimenId) {
+        try {
+        const response = await fetch('./menus.json');
+        const menusGuardados = await response.json();
+    
+        // Filtra los menús por régimen
+        const menusFiltrados = menusGuardados.filter(menu => menu.id === regimenId);
+    
+        // Limpia el cuerpo de la tabla
+        menuTableBody.innerHTML = "";
+    
+        // Crea filas para cada menú filtrado
+        menusFiltrados.forEach(menu => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+            <td>${menu.id}</td>
+            <td>${menu.entrada}</td>
+            <td>${menu.principal}</td>
+            <td>${menu.postre}</td>
+            <td>${menu.regimen}</td>
+            `;
+            menuTableBody.appendChild(row);
+        });
+        } catch (error) {
+        console.error('Error al obtener los menús:', error);
+        }
+    }
 
 for (let i = 1; i <= 16; i++) {
     const button = document.getElementById(`menu${i}`);
@@ -75,7 +85,12 @@ indi.addEventListener("submit", (e)=>{
         indi.reset();
 
     }else {
-        alert ("pone algo ")
+        Swal.fire({
+            title: 'Completa Todos las Casillas',
+            
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+        });
     }
 
 });
@@ -159,6 +174,7 @@ const guardarEnLocal = ()=> {
 
 }
 
+});
 
 
-})
+
