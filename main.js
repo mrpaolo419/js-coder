@@ -13,13 +13,10 @@ async function mostrarLista(regimenId) {
         const response = await fetch('./menus.json');
         const menusGuardados = await response.json();
     
-        // Filtra los menús por régimen
         const menusFiltrados = menusGuardados.filter(menu => menu.id === regimenId);
     
-        // Limpia el cuerpo de la tabla
         menuTableBody.innerHTML = "";
-    
-        // Crea filas para cada menú filtrado
+
         menusFiltrados.forEach(menu => {
             const row = document.createElement("tr");
             row.innerHTML = `
