@@ -1,44 +1,59 @@
+const menuTableBody = document.querySelector("#menuTableBody");
 
-
-const menuTableBody = document.querySelector("#menuTableBody")
-
-
-
-if (!localStorage.getItem("comida")) {
-localStorage.setItem("comida", JSON.stringify(menus));
+function cargarDatos() {
+    fetch("menus.json")
+        .then(response => response.json())
+        .then(data => {
+            localStorage.setItem("comida", JSON.stringify(data));
+            mostrarLista(1);
+        })
+        
 }
 
-async function mostrarLista(regimenId) {
-        try {
-        const response = await fetch('./menus.json');
-        const menusGuardados = await response.json();
-    
-        const menusFiltrados = menusGuardados.filter(menu => menu.id === regimenId);
-    
+function mostrarLista(regimenId) {
+    const menusGuardados = localStorage.getItem("comida");
+
+    if (menusGuardados) {
+        const menusArray = JSON.parse(menusGuardados);
+        const menusFiltrados = menusArray.filter(menu => menu.id === regimenId);
+
         menuTableBody.innerHTML = "";
 
         menusFiltrados.forEach(menu => {
             const row = document.createElement("tr");
             row.innerHTML = `
-            <td>${menu.id}</td>
-            <td>${menu.entrada}</td>
-            <td>${menu.principal}</td>
-            <td>${menu.postre}</td>
-            <td>${menu.regimen}</td>
+                <td>${menu.id}</td>
+                <td>${menu.entrada}</td>
+                <td>${menu.principal}</td>
+                <td>${menu.postre}</td>
+                <td>${menu.regimen}</td>
             `;
             menuTableBody.appendChild(row);
         });
-        } catch (error) {
-        console.error('Error al obtener los menús:', error);
-        }
+    } else {
+        alert('No se encontraron menús en el localStorage.');
     }
+}
 
 for (let i = 1; i <= 16; i++) {
     const button = document.getElementById(`menu${i}`);
-    button.addEventListener('click', () => mostrarLista(i));
+    if (button) {
+        button.addEventListener('click', () => mostrarLista(i));
+    }
 }
 
-window.addEventListener('load', () => mostrarLista(1));
+window.addEventListener('load', () => {
+    if (!localStorage.getItem("comida")) {
+        cargarDatos();
+    } else {
+        mostrarLista(1);
+    }
+});
+
+
+
+
+
 
 
 
