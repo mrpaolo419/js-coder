@@ -1,82 +1,132 @@
 const menuTableBody = document.querySelector("#menuTableBody");
+let ultimoMenuSeleccionado = null;
 
-function cargarDatos() {
-    fetch("menus.json")
-        .then(response => response.json())
-        .then(data => {
-            localStorage.setItem("comida", JSON.stringify(data));
-            mostrarLista(1);
-        })
-        
+function mostrarMenu(dia, tipo) {
+  const menusGuardados = menus; // o desde localStorage si preferís
+
+  const dias = [
+    "lunes",
+    "martes",
+    "miercoles",
+    "jueves",
+    "viernes",
+    "sabado",
+    "domingo",
+  ];
+  const diaIndex = dias.indexOf(dia.toLowerCase());
+  if (diaIndex === -1) return;
+
+  // Agrupamos por régimen
+  const regimenes = [...new Set(menusGuardados.map((m) => m.regimen))];
+  menuTableBody.innerHTML = "";
+
+  regimenes.forEach((regimen) => {
+    const menusFiltrados = menusGuardados.filter(
+      (m) => m.regimen === regimen && m.tipo === tipo
+    );
+
+    const menu = menusFiltrados[diaIndex]; // Lunes = 0, Martes = 1, etc.
+
+    if (menu) {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+          <td>${menu.id}</td>
+          <td class="clickable">${menu.principal}</td>
+          <td>${menu.postre}</td>
+          <td>${menu.regimen}</td>
+        `;
+      const principalCell = row.querySelector(".clickable");
+      principalCell.addEventListener("click", () => {
+        ultimoMenuSeleccionado = menu;
+        mostrarIngredientes(menu);
+      });
+      menuTableBody.appendChild(row);
+    }
+  });
 }
 
-function mostrarLista(regimenId) {
-    const menusGuardados = localStorage.getItem("comida");
+function mostrarIngredientes(menu) {
+  const output = document.querySelector("#tablaIngredientes");
+  const input = document.querySelector("#cantidadComensales");
 
-    if (menusGuardados) {
-        const menusArray = JSON.parse(menusGuardados);
-        const menusFiltrados = menusArray.filter(menu => menu.id === regimenId);
+  const total = Number(input.value.trim());
+  if (!menu || isNaN(total) || total <= 0) {
+    output.innerHTML = "<p>Ingresá una cantidad válida de personas.</p>";
+    return;
+  }
 
-        menuTableBody.innerHTML = "";
+  let html = `<h4>${menu.principal}</h4><table class="table"><thead><tr><th>Ingrediente</th><th>PB</th><th>Unidad</th><th>PB Total</th></tr></thead><tbody>`;
 
-        menusFiltrados.forEach(menu => {
-            const row = document.createElement("tr");
-            row.innerHTML = `
-                <td>${menu.id}</td>
-                <td>${menu.entrada}</td>
-                <td>${menu.principal}</td>
-                <td>${menu.postre}</td>
-                <td>${menu.regimen}</td>
-            `;
-            menuTableBody.appendChild(row);
-        });
-    } else {
-        alert('No se encontraron menús en el localStorage.');
-    }
+  (menu.ingredientes || []).forEach((ing) => {
+    const totalPb = (ing.pb * total).toFixed(3);
+    html += `<tr><td>${ing.nombre}</td><td>${ing.pb}</td><td>${ing.unidad}</td><td>${totalPb}</td></tr>`;
+  });
+
+  html += `</tbody></table><h5>Postre: ${menu.postre}</h5><table class="table"><thead><tr><th>Ingrediente</th><th>PB</th><th>Unidad</th><th>PB Total</th></tr></thead><tbody>`;
+
+  (menu.postreIngredientes || []).forEach((ing) => {
+    const totalPb = (ing.pb * total).toFixed(3);
+    html += `<tr><td>${ing.nombre}</td><td>${ing.pb}</td><td>${ing.unidad}</td><td>${totalPb}</td></tr>`;
+  });
+
+  html += `</tbody></table>`;
+  output.innerHTML = html;
 }
 
-for (let i = 1; i <= 16; i++) {
-    const button = document.getElementById(`menu${i}`);
-    if (button) {
-        button.addEventListener('click', () => mostrarLista(i));
-    }
-}
+// ✅ Agregado dinámico de eventos a todos los botones de días/tipos
+const dias = [
+  "lunes",
+  "martes",
+  "miercoles",
+  "jueves",
+  "viernes",
+  "sabado",
+  "domingo",
+];
+const tipos = ["almuerzo", "cena"];
 
-window.addEventListener('load', () => {
-    if (!localStorage.getItem("comida")) {
-        cargarDatos();
-    } else {
-        mostrarLista(1);
+dias.forEach((dia) => {
+  tipos.forEach((tipo) => {
+    const btn = document.getElementById(`${dia}-${tipo}`);
+    if (btn) {
+      btn.addEventListener("click", () => {
+        mostrarMenu(dia, tipo);
+      });
     }
+  });
 });
 
+document.getElementById("btnCalcular").addEventListener("click", () => {
+  if (ultimoMenuSeleccionado) {
+    mostrarIngredientes(ultimoMenuSeleccionado);
+  } else {
+    document.querySelector("#tablaIngredientes").innerHTML =
+      "<p>Seleccioná un plato para calcular los ingredientes.</p>";
+  }
+});
 
+window.addEventListener("load", () => {
+  mostrarMenu("lunes", "almuerzo");
+});
 
+window.addEventListener("load", () => {
+  const nombre = document.querySelector(".indi-nombre");
+  const sala = document.querySelector(".indi-sala");
+  const cama = document.querySelector(".indi-cama");
+  const entrada = document.querySelector(".indi-entrada");
+  const principal = document.querySelector(".indi-principal");
+  const postre = document.querySelector(".indi-postre");
+  const preparados = document.querySelector("#indiPreparados");
+  const indi = document.querySelector("#indi");
 
+  const getRandomId = () => {
+    return Math.floor(Math.random() * 9000) + 1000;
+  };
 
+  let = data = JSON.parse(localStorage.getItem("formdata")) || [];
 
-
-
-window.addEventListener("load", ()=>{
-
-const nombre = document.querySelector(".indi-nombre");
-const sala = document.querySelector(".indi-sala");
-const cama = document.querySelector(".indi-cama");
-const entrada = document.querySelector(".indi-entrada");
-const principal = document.querySelector(".indi-principal");
-const postre = document.querySelector(".indi-postre");
-const preparados = document.querySelector("#indiPreparados");
-const indi = document.querySelector("#indi");
-
-const getRandomId = () => {
-    return Math.floor(Math.random() * 9000) + 1000; 
-};
-
-let = data = JSON.parse(localStorage.getItem("formdata")) || []
-
-indi.addEventListener("submit", (e)=>{
-    e.preventDefault()
-
+  indi.addEventListener("submit", (e) => {
+    e.preventDefault();
 
     const idIndi = getRandomId();
     const nombreIndi = nombre.value;
@@ -86,79 +136,87 @@ indi.addEventListener("submit", (e)=>{
     const principalIndi = principal.value;
     const postreIndi = postre.value;
 
+    if (
+      idIndi &&
+      nombreIndi &&
+      salaIndi &&
+      camaIndi &&
+      entradaIndi &&
+      principalIndi &&
+      postreIndi
+    ) {
+      const nuevaData = {
+        idIndi,
+        nombreIndi,
+        salaIndi,
+        camaIndi,
+        entradaIndi,
+        principalIndi,
+        postreIndi,
+      };
+      data.push(nuevaData);
+      guardarEnLocal();
+      renderIndi();
+      indi.reset();
+    } else {
+      Swal.fire({
+        title: "Completa Todos las Casillas",
 
-
-    
-    if(idIndi && nombreIndi && salaIndi && camaIndi && entradaIndi && principalIndi && postreIndi){
-        const nuevaData = { idIndi, nombreIndi, salaIndi, camaIndi, entradaIndi, principalIndi, postreIndi };
-        data.push(nuevaData);
-        guardarEnLocal();
-        renderIndi();
-        indi.reset();
-
-    }else {
-        Swal.fire({
-            title: 'Completa Todos las Casillas',
-            
-            icon: 'error',
-            confirmButtonText: 'Aceptar'
-        });
+        icon: "error",
+        confirmButtonText: "Aceptar",
+      });
     }
+  });
 
-});
+  const renderIndi = () => {
+    preparados.innerHTML = "";
 
-const renderIndi = () => {
-    preparados.innerHTML =""
+    data.forEach((item, index) => {
+      const row = document.createElement("tr");
+      const idCelda = document.createElement("td");
+      const nombreCelda = document.createElement("td");
+      const salaCelda = document.createElement("td");
+      const camaCelda = document.createElement("td");
+      const entradaCelda = document.createElement("td");
+      const principalCelda = document.createElement("td");
+      const postreCelda = document.createElement("td");
+      const editar = document.createElement("button");
+      const eliminar = document.createElement("button");
 
-    data.forEach((item, index ) => {
-        const row = document.createElement("tr");
-        const idCelda =document.createElement("td");
-        const nombreCelda =document.createElement("td");
-        const salaCelda =document.createElement("td");
-        const camaCelda =document.createElement("td");
-        const entradaCelda =document.createElement("td");
-        const principalCelda =document.createElement("td");
-        const postreCelda =document.createElement("td");
-        const editar =document.createElement("button");
-        const eliminar =document.createElement("button");
+      idCelda.textContent = item.idIndi;
+      nombreCelda.textContent = item.nombreIndi;
+      salaCelda.textContent = item.salaIndi;
+      camaCelda.textContent = item.camaIndi;
+      entradaCelda.textContent = item.entradaIndi;
+      principalCelda.textContent = item.principalIndi;
+      postreCelda.textContent = item.postreIndi;
+      editar.textContent = "editar";
+      editar.addEventListener("click", function () {
+        editarData(index);
+      });
 
+      eliminar.textContent = "eliminar";
+      eliminar.addEventListener("click", function () {
+        eliminarData(index);
+      });
 
-        idCelda.textContent = item.idIndi;
-        nombreCelda.textContent = item.nombreIndi;
-        salaCelda.textContent = item.salaIndi;
-        camaCelda.textContent = item.camaIndi;
-        entradaCelda.textContent = item.entradaIndi;
-        principalCelda.textContent = item.principalIndi;
-        postreCelda.textContent = item.postreIndi;
-        editar.textContent = "editar"
-        editar.addEventListener("click", function(){
-            editarData(index);
-        })
+      row.appendChild(idCelda);
+      row.appendChild(nombreCelda);
+      row.appendChild(salaCelda);
+      row.appendChild(camaCelda);
+      row.appendChild(entradaCelda);
+      row.appendChild(principalCelda);
+      row.appendChild(postreCelda);
+      row.appendChild(editar);
+      row.appendChild(eliminar);
 
-        eliminar.textContent = "eliminar"
-        eliminar.addEventListener("click", function(){
-            eliminarData(index);
-        })
+      preparados.appendChild(row);
+    });
+  };
 
-
-        row.appendChild(idCelda);
-        row.appendChild(nombreCelda);
-        row.appendChild(salaCelda);
-        row.appendChild(camaCelda);
-        row.appendChild(entradaCelda);
-        row.appendChild(principalCelda);
-        row.appendChild(postreCelda);
-        row.appendChild(editar);
-        row.appendChild(eliminar);
-
-        preparados.appendChild(row)
-        
-    })
-}
-
-const editarData = (index) =>{
+  const editarData = (index) => {
     const item = data[index];
-    
+
     nombre.value = item.nombreIndi;
     sala.value = item.salaIndi;
     cama.value = item.camaIndi;
@@ -167,26 +225,19 @@ const editarData = (index) =>{
     postre.value = item.postreIndi;
 
     data.splice(index, 1);
-    renderIndi()
-    guardarEnLocal()
+    renderIndi();
+    guardarEnLocal();
+  };
 
-}
+  const eliminarData = (index) => {
+    data.splice(index, 1);
+    guardarEnLocal();
+    renderIndi();
+  };
 
-const eliminarData = (index)=>{
-    data.splice(index, 1 )
-    guardarEnLocal()
-    renderIndi()
-}
+  renderIndi();
 
-renderIndi()
-
-
-const guardarEnLocal = ()=> {
-    localStorage.setItem("formdata",JSON.stringify(data));
-
-}
-
+  const guardarEnLocal = () => {
+    localStorage.setItem("formdata", JSON.stringify(data));
+  };
 });
-
-
-
