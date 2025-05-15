@@ -14,97 +14,242 @@ const menus = [
   },
 
   {
-    id: 2,
+    id: 102,
     tipo: "almuerzo",
     principal: "POLLO AL HORNO C/ JARDINERA",
     postre: "NARANJA",
     regimen: "general",
+    ingredientes: [
+      { nombre: "ACEITE DE GIRASOL", pb: 0.01, unidad: "litros" },
+      { nombre: "ARVEJA SECA", pb: 0.03, unidad: "kg" },
+      { nombre: "PAPA BLANCA", pb: 0.15, unidad: "kg" },
+      { nombre: "ZANAHORIA", pb: 0.125, unidad: "kg" },
+      { nombre: "MORRON VERDE", pb: 0.007, unidad: "kg" },
+      { nombre: "POLLO 8 CABEZAS", pb: 0.416, unidad: "kg" },
+    ],
+    postreIngredientes: [{ nombre: "FRUTA", pb: 0.15, unidad: "kg" }],
   },
+
   {
-    id: 3,
+    id: 103,
     tipo: "almuerzo",
     principal: "GUISO DE LENTEJAS",
-    postre: "NARANJA",
+    postre: "ASPIC",
     regimen: "general",
+    ingredientes: [
+      { nombre: "ACEITE DE GIRASOL", pb: 0.005, unidad: "litros" },
+      { nombre: "CEBOLLA", pb: 0.05, unidad: "kg" },
+      { nombre: "CHORIZO COLORADO", pb: 0.02, unidad: "kg" },
+      { nombre: "LENTEJA SECA", pb: 0.08, unidad: "kg" },
+      { nombre: "MORRON VERDE", pb: 0.01, unidad: "kg" },
+      { nombre: "PANCETA", pb: 0.02, unidad: "kg" },
+      { nombre: "PURE DE TOMATE", pb: 0.03, unidad: "kg" },
+      { nombre: "ROAST BEEF", pb: 0.1, unidad: "kg" },
+      { nombre: "ZANAHORIA", pb: 0.04, unidad: "kg" },
+      { nombre: "ZAPALLO ANCO", pb: 0.03, unidad: "kg" },
+    ],
+    postreIngredientes: [
+      { nombre: "MANZANA ROJA COMERCIAL", pb: 0.05, unidad: "kg" },
+      { nombre: "POLVO PARA PREPARAR ASPIC", pb: 0.015, unidad: "kg" },
+    ],
   },
   {
-    id: 4,
+    id: 104,
     tipo: "almuerzo",
     principal: "MILANESA DE CARNE COCIDA C/ENSALADA",
-    postre: "NARANJA",
+    postre: "FRUTA",
     regimen: "general",
+    ingredientes: [
+      { nombre: "ACEITE DE GIRASOL", pb: 0.005, unidad: "litros" },
+      { nombre: "LECHUGA", pb: 0.08, unidad: "kg" },
+      { nombre: "TOMATE", pb: 0.12, unidad: "kg" },
+      { nombre: "MILANESA PRECOCIDA", pb: 1.0, unidad: "unidad" },
+    ],
+    postreIngredientes: [{ nombre: "FRUTA", pb: 0.15, unidad: "kg" }],
   },
   {
-    id: 5,
+    id: 105,
     tipo: "almuerzo",
     principal: "ASADO C/ ENSALADA",
-    postre: "NARANJA",
+    postre: "FRUTA",
     regimen: "general",
+    ingredientes: [
+      { nombre: "CEBOLLA", pb: 0.005, unidad: "kg" },
+      { nombre: "CHORIZO BOMBON", pb: 0.06, unidad: "kg" },
+      { nombre: "LECHUGA", pb: 0.07, unidad: "kg" },
+      { nombre: "NARANJA", pb: 0.15, unidad: "kg" },
+      { nombre: "ASADO", pb: 0.4, unidad: "kg" },
+      { nombre: "TOMATE", pb: 0.06, unidad: "kg" },
+    ],
+    postreIngredientes: [{ nombre: "FRUTA", pb: 0.15, unidad: "kg" }],
   },
   {
-    id: 6,
+    id: 106,
     tipo: "almuerzo",
     principal: "HAMBURGUESAS INDUST. C/PURE MIXTO",
-    postre: "NARANJA",
+    postre: "FRUTA",
     regimen: "general",
+    ingredientes: [
+      { nombre: "ACEITE DE GIRASOL", pb: 0.02, unidad: "litros" },
+      { nombre: "LECHUGA", pb: 0.06, unidad: "kg" },
+      { nombre: "ZANAHORIA", pb: 0.14, unidad: "kg" },
+      { nombre: "ACEITE DE GIRASOL", pb: 0.005, unidad: "litros" },
+      { nombre: "HAMBURGUESAS", pb: 2.0, unidad: "unidades" },
+    ],
+    postreIngredientes: [{ nombre: "FRUTA", pb: 0.18, unidad: "kg" }],
   },
   {
-    id: 7,
+    id: 107,
     tipo: "almuerzo",
     principal: "POLLO AL HORNO C/ARROZ PRIMAVERA",
-    postre: "NARANJA",
+    postre: "FRUTA",
     regimen: "general",
+    ingredientes: [
+      { nombre: "ACEITE DE GIRASOL", pb: 0.01, unidad: "litros" },
+      { nombre: "ARROZ PARBOLIZADO", pb: 0.07, unidad: "kg" },
+      { nombre: "ARVEJA SECA", pb: 0.02, unidad: "kg" },
+      { nombre: "ZANAHORIA", pb: 0.05, unidad: "kg" },
+      { nombre: "POLLO 10 CABEZAS", pb: 0.5, unidad: "kg" },
+    ],
+    postreIngredientes: [{ nombre: "FRUTA", pb: 0.15, unidad: "kg" }],
   },
   {
-    id: 8,
+    id: 108,
     tipo: "cena",
     principal: "FIDEOS TALLARIN CON ESTOFADO",
     postre: "BANANA",
     regimen: "general",
+    ingredientes: [
+      { nombre: "ACEITE DE GIRASOL", pb: 0.005, unidad: "litros" },
+      { nombre: "CEBOLLA", pb: 0.03, unidad: "kg" },
+      { nombre: "FIDEO SEMOLADO TALLARIN", pb: 0.09, unidad: "kg" },
+      { nombre: "MORRON VERDE", pb: 0.015, unidad: "kg" },
+      { nombre: "PURE DE TOMATE", pb: 0.03, unidad: "kg" },
+      { nombre: "ROAST BEEF", pb: 0.15, unidad: "kg" },
+    ],
+    postreIngredientes: [{ nombre: "FRUTA", pb: 0.18, unidad: "kg" }],
   },
   {
-    id: 9,
+    id: 109,
     tipo: "cena",
     principal: "ALBONDIGAS CON SALSA Y PURE PURE DE PAPA Y BATATA",
-    postre: "NARANJA",
+    postre: "FLAN",
     regimen: "general",
+    ingredientes: [
+      { nombre: "ACEITE DE GIRASOL", pb: 0.005, unidad: "litros" },
+      { nombre: "CEBOLLA", pb: 0.04, unidad: "kg" },
+      { nombre: "HUEVOS", pb: 0.2, unidad: "unidad" },
+      { nombre: "PAN RALLADO", pb: 0.02, unidad: "kg" },
+      { nombre: "PURE DE TOMATE", pb: 0.03, unidad: "kg" },
+      { nombre: "RECORTE", pb: 0.12, unidad: "kg" },
+      { nombre: "ACEITE DE GIRASOL", pb: 0.01, unidad: "litros" },
+      { nombre: "BATATA", pb: 0.2, unidad: "kg" },
+      { nombre: "PAPA BLANCA", pb: 0.25, unidad: "kg" },
+    ],
+    postreIngredientes: [
+      { nombre: "LECHE ENTERA EN POLVO", pb: 0.012, unidad: "kg" },
+      { nombre: "POLVO PARA PREPARAR FLAN", pb: 0.01, unidad: "kg" },
+    ],
   },
   {
-    id: 10,
+    id: 110,
     tipo: "cena",
     principal: "PASTEL DE PAPA",
-    postre: "NARANJA",
+    postre: "FRUTA",
     regimen: "general",
+    ingredientes: [
+      { nombre: "ACEITE DE GIRASOL", pb: 0.01, unidad: "litros" },
+      { nombre: "CEBOLLA", pb: 0.03, unidad: "kg" },
+      { nombre: "HUEVOS", pb: 0.3, unidad: "unidad" },
+      { nombre: "PAPA BLANCA", pb: 0.48, unidad: "kg" },
+      { nombre: "RECORTE", pb: 0.12, unidad: "kg" },
+    ],
+    postreIngredientes: [{ nombre: "FRUTA", pb: 0.18, unidad: "kg" }],
   },
   {
-    id: 11,
+    id: 111,
     tipo: "cena",
     principal: "ARROZ CON POLLO",
-    postre: "NARANJA",
+    postre: "POSTRE",
     regimen: "general",
+    ingredientes: [
+      { nombre: "ARROZ BLANCO 00000", pb: 0.1, unidad: "kg" },
+      { nombre: "ARVEJA SECA", pb: 0.015, unidad: "kg" },
+      { nombre: "CEBOLLA", pb: 0.05, unidad: "kg" },
+      { nombre: "MORRON VERDE", pb: 0.01, unidad: "kg" },
+      { nombre: "POLLO 10 CABEZAS", pb: 0.38, unidad: "kg" },
+      { nombre: "PURE DE TOMATE", pb: 0.03, unidad: "kg" },
+      { nombre: "ZANAHORIA", pb: 0.04, unidad: "kg" },
+    ],
+    postreIngredientes: [
+      { nombre: "LECHE ENTERA EN POLVO", pb: 0.02, unidad: "kg" },
+      { nombre: "POLVO PARA PREPARAR POSTRE", pb: 0.02, unidad: "kg" },
+    ],
   },
   {
-    id: 12,
+    id: 112,
     tipo: "cena",
     principal: "FIDEOS TALLARIN CON ESTOFADO",
-    postre: "MANDARINA",
+    postre: "POSTRE",
     regimen: "general",
+    ingredientes: [
+      { nombre: "ACEITE DE GIRASOL", pb: 0.01, unidad: "litros" },
+      { nombre: "CEBOLLA", pb: 0.03, unidad: "kg" },
+      { nombre: "FIDEO SEMOLADO GUISERO", pb: 0.1, unidad: "kg" },
+      { nombre: "MORRON VERDE", pb: 0.01, unidad: "kg" },
+      { nombre: "PURE DE TOMATE", pb: 0.03, unidad: "kg" },
+      { nombre: "ROAST BEEF", pb: 0.15, unidad: "kg" },
+      { nombre: "ZANAHORIA", pb: 0.03, unidad: "kg" },
+      { nombre: "ZAPALLO ANCO", pb: 0.03, unidad: "kg" },
+    ],
+    postreIngredientes: [
+      { nombre: "LECHE ENTERA EN POLVO", pb: 0.02, unidad: "kg" },
+      { nombre: "POLVO PARA PREPARAR POSTRE", pb: 0.02, unidad: "kg" },
+    ],
   },
   {
-    id: 13,
+    id: 113,
     tipo: "cena",
     principal: "POLENTA CON SALSA BOLOGNESA",
-    postre: "NARANJA",
+    postre: "CHUÑO",
     regimen: "general",
+    ingredientes: [
+      { nombre: "ACEITE DE GIRASOL", pb: 0.008, unidad: "litros" },
+      { nombre: "CEBOLLA", pb: 0.02, unidad: "kg" },
+      { nombre: "HARINA DE MAIZ", pb: 0.07, unidad: "kg" },
+      { nombre: "MORRON VERDE", pb: 0.01, unidad: "kg" },
+      { nombre: "PURE DE TOMATE", pb: 0.05, unidad: "kg" },
+      { nombre: "QUESO SARDO", pb: 0.01, unidad: "kg" },
+      { nombre: "RECORTE", pb: 0.1, unidad: "kg" },
+      { nombre: "ZANAHORIA", pb: 0.01, unidad: "kg" },
+    ],
+    postreIngredientes: [
+      { nombre: "ALMIDON DE MAIZ", pb: 0.015, unidad: "kg" },
+      { nombre: "AZUCAR BLANCA", pb: 0.01, unidad: "kg" },
+      { nombre: "ESENCIA DE VAINILLA", pb: 0.001, unidad: "kg" },
+      { nombre: "LECHE ENTERA EN POLVO", pb: 0.015, unidad: "kg" },
+    ],
   },
   {
-    id: 14,
+    id: 114,
     tipo: "cena",
     principal: "GUISO CARRERO",
-    postre: "NARANJA",
+    postre: "FRUTA",
     regimen: "general",
+    ingredientes: [
+      { nombre: "ARVEJA SECA", pb: 0.015, unidad: "kg" },
+      { nombre: "BATATA", pb: 0.05, unidad: "kg" },
+      { nombre: "CEBOLLA", pb: 0.03, unidad: "kg" },
+      { nombre: "MORRON VERDE", pb: 0.01, unidad: "kg" },
+      { nombre: "PAPA BLANCA", pb: 0.15, unidad: "kg" },
+      { nombre: "POROTO SECO", pb: 0.03, unidad: "kg" },
+      { nombre: "PURE DE TOMATE", pb: 0.03, unidad: "kg" },
+      { nombre: "ROAST BEEF", pb: 0.15, unidad: "kg" },
+      { nombre: "ZANAHORIA", pb: 0.04, unidad: "kg" },
+      { nombre: "ZAPALLO ANCO", pb: 0.05, unidad: "kg" },
+    ],
+    postreIngredientes: [{ nombre: "FRUTA", pb: 0.18, unidad: "kg" }],
   },
-
   {
     id: 201,
     tipo: "almuerzo",
@@ -125,96 +270,278 @@ const menus = [
     postreIngredientes: [{ nombre: "FRUTA", pb: 0.18, unidad: "kg" }],
   },
   {
-    id: 2,
+    id: 202,
     tipo: "almuerzo",
     principal: "POLLO AL HORNO CON SALSA CRIOLLA Y PAPAS AL NATURAL",
     postre: "GELATINA",
     regimen: "oficiales",
+    ingredientes: [
+      { nombre: "ACEITE DE GIRASOL", pb: 0.005, unidad: "litros" },
+      { nombre: "PAPA BLANCA", pb: 0.38, unidad: "kg" },
+      { nombre: "POLLO 10 CABEZAS", pb: 0.378, unidad: "kg" },
+      { nombre: "ACEITE DE GIRASOL", pb: 0.01, unidad: "litros" },
+      { nombre: "CEBOLLA", pb: 0.06, unidad: "kg" },
+      { nombre: "MORRON ROJO", pb: 0.02, unidad: "kg" },
+      { nombre: "MORRON VERDE", pb: 0.02, unidad: "kg" },
+    ],
+    postreIngredientes: [
+      { nombre: "POLVO PARA PREPARAR GELATINA", pb: 0.01, unidad: "kg" },
+    ],
   },
   {
-    id: 3,
+    id: 203,
     tipo: "almuerzo",
     principal: "MILANESA CASERA CON ENSALADA",
     postre: "FLAN DE VAINILLA",
     regimen: "oficiales",
+    ingredientes: [
+      { nombre: "ACEITE DE GIRASOL", pb: 0.005, unidad: "litros" },
+      { nombre: "LECHUGA", pb: 0.08, unidad: "kg" },
+      { nombre: "TOMATE", pb: 0.09, unidad: "kg" },
+      { nombre: "ACEITE DE GIRASOL", pb: 0.02, unidad: "litros" },
+      { nombre: "HUEVOS", pb: 0.25, unidad: "unidad" },
+      { nombre: "NALGA FETEADA X 120", pb: 0.12, unidad: "kg" },
+      { nombre: "PAN RALLADO", pb: 0.06, unidad: "kg" },
+    ],
+    postreIngredientes: [
+      { nombre: "LECHE ENTERA EN POLVO", pb: 0.012, unidad: "kg" },
+      { nombre: "POLVO PARA PREPARAR FLAN", pb: 0.01, unidad: "kg" },
+    ],
   },
   {
-    id: 4,
-    tipo: "almuerzo",
-    principal: "ALBONDIGAS CON FIDEOS",
-    postre: "NARANJA",
-    regimen: "oficiales",
-  },
-  {
-    id: 5,
-    tipo: "almuerzo",
-    principal: "ASADO CON ENSALADA",
-    postre: "GELATINA",
-    regimen: "oficiales",
-  },
-  {
-    id: 6,
-    tipo: "almuerzo",
-    principal: "POLLO AL HORNO CON VERDURAS EN JULIANA",
-    postre: "FLAN",
-    regimen: "oficiales",
-  },
-  {
-    id: 7,
-    tipo: "almuerzo",
-    principal: "RAVIOLES DE VERDURA CON ESTOFADO",
-    postre: "FLAN DE VAINILLA",
-    regimen: "oficiales",
-  },
-  {
-    id: 8,
-    tipo: "cena",
-    principal: "FIDEOS CON SALSA ESTOFADO",
-    postre: "FLAN",
-    regimen: "oficiales",
-  },
-  {
-    id: 9,
-    tipo: "cena",
-    principal: "FIDEOS AL PESTO ACEITE, ALBAHACA, QUESO Y HAMBURGUESA CASERA",
-    postre: "ENS. DE FRUTAS",
-    regimen: "oficiales",
-  },
-  {
-    id: 10,
-    tipo: "cena",
-    principal: "PASTEL DE PAPA",
-    postre: "GELATINA",
-    regimen: "oficiales",
-  },
-  {
-    id: 11,
-    tipo: "cena",
-    principal: "ARROZ CON POLLO",
-    postre: "FLAN",
-    regimen: "oficiales",
-  },
-  {
-    id: 12,
-    tipo: "cena",
-    principal: "EMPANADA DE CARNE(2) EMPANADA DE JYQ(2)",
-    postre: "ENS. DE FRUTAS",
-    regimen: "oficiales",
-  },
-  {
-    id: 13,
-    tipo: "cena",
-    principal: "BIFE CON PURE MIXTO",
-    postre: "GELATINA",
-    regimen: "oficiales",
-  },
-  {
-    id: 14,
-    tipo: "cena",
-    principal: "PIZZAS 4 PORCIONES",
-    postre: "ENS. DE FRUTAS",
-    regimen: "oficiales",
-  },
+    {
+      id: 204,
+      tipo: "almuerzo",
+      principal: "ALBONDIGAS CON FIDEOS",
+      postre: "FRUTA",
+      regimen: "oficiales",
+      ingredientes: [
+        { nombre: "ACEITE DE GIRASOL", pb: 0.0100, unidad: "litros" },
+        { nombre: "CEBOLLA", pb: 0.0400, unidad: "kg" },
+        { nombre: "FIDEO SEMOLADO GUISERO", pb: 0.1000, unidad: "kg" },
+        { nombre: "HUEVOS", pb: 0.3000, unidad: "unidad" },
+        { nombre: "LECHE ENTERA EN POLVO", pb: 0.0050, unidad: "kg" },
+        { nombre: "MORRON VERDE", pb: 0.0100, unidad: "kg" },
+        { nombre: "PAN RALLADO", pb: 0.0200, unidad: "kg" },
+        { nombre: "PURE DE TOMATE", pb: 0.0400, unidad: "kg" },
+        { nombre: "ROAST BEEF", pb: 0.2000, unidad: "kg" },
+        { nombre: "ZANAHORIA", pb: 0.0300, unidad: "kg" }
+      ],
+      postreIngredientes: [
+        { nombre: "FRUTA", pb: 0.1800, unidad: "kg" }
+      ]
+    }
+    ,
+    {
+      id: 205,
+      tipo: "almuerzo",
+      principal: "ASADO CON ENSALADA",
+      postre: "GELATINA",
+      regimen: "oficiales",
+      ingredientes: [
+        { nombre: "CEBOLLA", pb: 0.0050, unidad: "kg" },
+        { nombre: "CHORIZO BOMBON", pb: 0.0600, unidad: "kg" },
+        { nombre: "LECHUGA", pb: 0.0700, unidad: "kg" },
+        { nombre: "NARANJA", pb: 0.1500, unidad: "kg" },
+        { nombre: "ASADO", pb: 0.4000, unidad: "kg" },
+        { nombre: "TOMATE", pb: 0.0600, unidad: "kg" }
+      ],
+      postreIngredientes: [
+        { nombre: "FRUTA", pb: 0.1800, unidad: "kg" }
+      ]
+    }
+    ,
+    {
+      id: 206,
+      tipo: "almuerzo",
+      principal: "POLLO AL HORNO CON VERDURAS EN JULIANA",
+      postre: "FLAN",
+      regimen: "oficiales",
+      ingredientes: [
+        { nombre: "POLLO 10 CABEZAS", pb: 0.5000, unidad: "kg" },
+        { nombre: "BERENJENA", pb: 0.1000, unidad: "kg" },
+        { nombre: "CEBOLLA", pb: 0.0500, unidad: "kg" },
+        { nombre: "MORRON ROJO", pb: 0.0300, unidad: "kg" },
+        { nombre: "MORRON VERDE", pb: 0.0300, unidad: "kg" },
+        { nombre: "ZANAHORIA", pb: 0.0700, unidad: "kg" },
+        { nombre: "ZAPALLITO CORTE", pb: 0.0600, unidad: "kg" }
+      ],
+      postreIngredientes: [
+        { nombre: "LECHE ENTERA EN POLVO", pb: 0.0120, unidad: "kg" },
+        { nombre: "POLVO PARA PREPARAR FLAN", pb: 0.0100, unidad: "kg" }
+      ]
+    }
+    ,
+    {
+      id: 207,
+      tipo: "almuerzo",
+      principal: "RAVIOLES DE VERDURA CON ESTOFADO",
+      postre: "FLAN DE VAINILLA",
+      regimen: "oficiales",
+      ingredientes: [
+        { nombre: "ACEITE DE GIRASOL", pb: 0.0100, unidad: "litros" },
+        { nombre: "CEBOLLA", pb: 0.0400, unidad: "kg" },
+        { nombre: "MORRON VERDE", pb: 0.0100, unidad: "kg" },
+        { nombre: "PURE DE TOMATE", pb: 0.0400, unidad: "kg" },
+        { nombre: "RAVIOLES DE VERDURA", pb: 0.1700, unidad: "kg" },
+        { nombre: "ROAST BEEF", pb: 0.1000, unidad: "kg" },
+        { nombre: "ZANAHORIA", pb: 0.0400, unidad: "kg" }
+      ],
+      postreIngredientes: [
+        { nombre: "LECHE ENTERA EN POLVO", pb: 0.0120, unidad: "kg" },
+        { nombre: "POLVO PARA PREPARAR FLAN", pb: 0.0100, unidad: "kg" }
+      ]
+    }
+    ,
+    {
+      id: 208,
+      tipo: "cena",
+      principal: "FIDEOS CON SALSA ESTOFADO",
+      postre: "FLAN",
+      regimen: "oficiales",
+      ingredientes: [
+        { nombre: "ACEITE DE GIRASOL", pb: 0.0050, unidad: "litros" },
+        { nombre: "CEBOLLA", pb: 0.0400, unidad: "kg" },
+        { nombre: "FIDEO SEMOLADO TALLARIN", pb: 0.1200, unidad: "kg" },
+        { nombre: "MORRON VERDE", pb: 0.0050, unidad: "kg" },
+        { nombre: "OREGANO", pb: 0.0000, unidad: "kg" },
+        { nombre: "PURE DE TOMATE", pb: 0.0400, unidad: "kg" },
+        { nombre: "QUESO SARDO", pb: 0.0050, unidad: "kg" },
+        { nombre: "ROAST BEEF", pb: 0.1400, unidad: "kg" },
+        { nombre: "ZANAHORIA", pb: 0.0400, unidad: "kg" }
+      ],
+      postreIngredientes: [
+        { nombre: "LECHE ENTERA EN POLVO", pb: 0.0120, unidad: "kg" },
+        { nombre: "POLVO PARA PREPARAR FLAN", pb: 0.0100, unidad: "kg" }
+      ]
+    }
+    ,
+    {
+      id: 209,
+      tipo: "cena",
+      principal: "FIDEOS AL PESTO ACEITE, ALBAHACA, QUESO Y HAMBURGUESA CASERA",
+      postre: "ENS. DE FRUTAS",
+      regimen: "oficiales",
+      ingredientes: [
+        { nombre: "ACEITE DE GIRASOL", pb: 0.0150, unidad: "litros" },
+        { nombre: "ALBAHACA", pb: 0.0100, unidad: "kg" },
+        { nombre: "FIDEO SEMOLADO TALLARIN", pb: 0.1000, unidad: "kg" },
+        { nombre: "QUESO SARDO", pb: 0.0070, unidad: "kg" },
+        { nombre: "ACEITE DE GIRASOL", pb: 0.0100, unidad: "litros" },
+        { nombre: "CARNE PICADA ESPECIAL", pb: 0.1500, unidad: "kg" },
+        { nombre: "CEBOLLA", pb: 0.0400, unidad: "kg" },
+        { nombre: "HUEVOS", pb: 0.3000, unidad: "unidad" },
+        { nombre: "PAN RALLADO", pb: 0.0100, unidad: "kg" }
+      ],
+      postreIngredientes: [
+        { nombre: "FRUTA", pb: 0.1800, unidad: "kg" }
+      ]
+    }
+    ,
+    {
+      id: 210,
+      tipo: "cena",
+      principal: "PASTEL DE PAPA",
+      postre: "GELATINA",
+      regimen: "oficiales",
+      ingredientes: [
+        { nombre: "ACEITE DE GIRASOL", pb: 0.0100, unidad: "litros" },
+        { nombre: "CEBOLLA", pb: 0.0300, unidad: "kg" },
+        { nombre: "HUEVOS", pb: 0.3000, unidad: "unidad" },
+        { nombre: "PAPA BLANCA", pb: 0.4800, unidad: "kg" },
+        { nombre: "RECORTE", pb: 0.1200, unidad: "kg" }
+      ],
+      postreIngredientes: [
+        { nombre: "POLVO PARA PREPARAR GELATINA", pb: 0.0100, unidad: "kg" }
+      ]
+    }
+    ,
+    {
+      id: 211,
+      tipo: "cena",
+      principal: "ARROZ CON POLLO",
+      postre: "FLAN",
+      regimen: "oficiales",
+      ingredientes: [
+        { nombre: "ARROZ BLANCO 00000", pb: 0.1000, unidad: "kg" },
+        { nombre: "ARVEJA SECA", pb: 0.0150, unidad: "kg" },
+        { nombre: "CEBOLLA", pb: 0.0500, unidad: "kg" },
+        { nombre: "MORRON VERDE", pb: 0.0100, unidad: "kg" },
+        { nombre: "POLLO 10 CABEZAS", pb: 0.3800, unidad: "kg" },
+        { nombre: "PURE DE TOMATE", pb: 0.0300, unidad: "kg" },
+        { nombre: "ZANAHORIA", pb: 0.0400, unidad: "kg" }
+      ],
+      postreIngredientes: [
+        { nombre: "LECHE ENTERA EN POLVO", pb: 0.0200, unidad: "kg" },
+        { nombre: "POLVO PARA PREPARAR FLAN", pb: 0.0200, unidad: "kg" }
+      ]
+    }
+    ,
+    {
+      id: 212,
+      tipo: "cena",
+      principal: "EMPANADA DE CARNE(2) EMPANADA DE JYQ(2)",
+      postre: "ENS. DE FRUTAS",
+      regimen: "oficiales",
+      ingredientes: [
+        { nombre: "ACEITE DE GIRASOL", pb: 0.0050, unidad: "litros" },
+        { nombre: "ACEITUNA VERDE", pb: 0.0080, unidad: "kg" },
+        { nombre: "CEBOLLA", pb: 0.0400, unidad: "kg" },
+        { nombre: "HUEVOS", pb: 0.0400, unidad: "unidad" },
+        { nombre: "MORRON VERDE", pb: 0.0100, unidad: "kg" },
+        { nombre: "ROAST BEEF", pb: 0.1000, unidad: "kg" },
+        { nombre: "TAPA DE EMPANADA", pb: 0.0800, unidad: "unidad" },
+        { nombre: "HUEVOS", pb: 0.0400, unidad: "unidad" },
+        { nombre: "PALETA COCIDA", pb: 0.0800, unidad: "kg" },
+        { nombre: "QUESO BARRA", pb: 0.0800, unidad: "kg" },
+        { nombre: "TAPA DE EMPANADA", pb: 0.2000, unidad: "unidad" }
+      ],
+      postreIngredientes: [
+        { nombre: "FRUTA", pb: 0.1800, unidad: "kg" }
+      ]
+    }
+    ,
+    {
+      id: 213,
+      tipo: "cena",
+      principal: "BIFE CON PURE MIXTO",
+      postre: "GELATINA",
+      regimen: "oficiales",
+      ingredientes: [
+        { nombre: "ACEITE DE GIRASOL", pb: 0.0050, unidad: "litros" },
+        { nombre: "PALETA SIN TAPA", pb: 0.2200, unidad: "kg" },
+        { nombre: "LECHE ENTERA EN POLVO", pb: 0.0050, unidad: "kg" },
+        { nombre: "MARGARINA", pb: 0.0050, unidad: "kg" },
+        { nombre: "PAPA BLANCA", pb: 0.3000, unidad: "kg" },
+        { nombre: "ZAPALLO ANCO", pb: 0.2000, unidad: "kg" }
+      ],
+      postreIngredientes: [
+        { nombre: "POLVO PARA PREPARAR GELATINA", pb: 0.0100, unidad: "kg" }
+      ]
+    }
+    ,
+    {
+      id: 214,
+      tipo: "cena",
+      principal: "PIZZAS 4 PORCIONES",
+      postre: "ENS. DE FRUTAS",
+      regimen: "oficiales",
+      ingredientes: [
+        { nombre: "ACEITE DE GIRASOL", pb: 0.0200, unidad: "litros" },
+        { nombre: "AZUCAR BLANCA", pb: 0.0300, unidad: "kg" },
+        { nombre: "CEBOLLA", pb: 0.0500, unidad: "kg" },
+        { nombre: "HARINA DE TRIGO 000", pb: 0.1600, unidad: "kg" },
+        { nombre: "HUEVOS", pb: 0.2000, unidad: "unidad" },
+        { nombre: "LEVADURA SECA", pb: 0.0300, unidad: "kg" },
+        { nombre: "PURE DE TOMATE", pb: 0.0500, unidad: "kg" },
+        { nombre: "QUESO MOZZARELLA", pb: 0.1200, unidad: "kg" },
+        { nombre: "TOMATE", pb: 0.0500, unidad: "kg" }
+      ],
+      postreIngredientes: [
+        { nombre: "FRUTA", pb: 0.1800, unidad: "kg" }
+      ]
+    }
+    ,
 
   {
     id: 301,
