@@ -2,7 +2,7 @@ const menuTableBody = document.querySelector("#menuTableBody");
 let ultimoMenuSeleccionado = null;
 
 function mostrarMenu(dia, tipo) {
-  const menusGuardados = menus; // o desde localStorage si preferís
+  const menusGuardados = JSON.parse(localStorage.getItem("comida")) || [];
 
   const dias = [
     "lunes",
@@ -30,11 +30,11 @@ function mostrarMenu(dia, tipo) {
     if (menu) {
       const row = document.createElement("tr");
       row.innerHTML = `
-          <td>${menu.id}</td>
-          <td class="clickable">${menu.principal}</td>
-          <td>${menu.postre}</td>
-          <td>${menu.regimen}</td>
-        `;
+        <td>${menu.id}</td>
+        <td class="clickable">${menu.principal}</td>
+        <td>${menu.postre}</td>
+        <td>${menu.regimen}</td>
+      `;
       const principalCell = row.querySelector(".clickable");
       principalCell.addEventListener("click", () => {
         ultimoMenuSeleccionado = menu;
@@ -73,7 +73,7 @@ function mostrarIngredientes(menu) {
   output.innerHTML = html;
 }
 
-// ✅ Agregado dinámico de eventos a todos los botones de días/tipos
+// Eventos para los botones de días y tipos
 const dias = [
   "lunes",
   "martes",
@@ -105,139 +105,109 @@ document.getElementById("btnCalcular").addEventListener("click", () => {
   }
 });
 
+// Al cargar la página
 window.addEventListener("load", () => {
   mostrarMenu("lunes", "almuerzo");
-});
-
-window.addEventListener("load", () => {
-  const nombre = document.querySelector(".indi-nombre");
-  const sala = document.querySelector(".indi-sala");
-  const cama = document.querySelector(".indi-cama");
-  const entrada = document.querySelector(".indi-entrada");
-  const principal = document.querySelector(".indi-principal");
-  const postre = document.querySelector(".indi-postre");
-  const preparados = document.querySelector("#indiPreparados");
-  const indi = document.querySelector("#indi");
-
-  const getRandomId = () => {
-    return Math.floor(Math.random() * 9000) + 1000;
-  };
-
-  let = data = JSON.parse(localStorage.getItem("formdata")) || [];
-
-  indi.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const idIndi = getRandomId();
-    const nombreIndi = nombre.value;
-    const salaIndi = sala.value;
-    const camaIndi = cama.value;
-    const entradaIndi = entrada.value;
-    const principalIndi = principal.value;
-    const postreIndi = postre.value;
-
-    if (
-      idIndi &&
-      nombreIndi &&
-      salaIndi &&
-      camaIndi &&
-      entradaIndi &&
-      principalIndi &&
-      postreIndi
-    ) {
-      const nuevaData = {
-        idIndi,
-        nombreIndi,
-        salaIndi,
-        camaIndi,
-        entradaIndi,
-        principalIndi,
-        postreIndi,
-      };
-      data.push(nuevaData);
-      guardarEnLocal();
-      renderIndi();
-      indi.reset();
-    } else {
-      Swal.fire({
-        title: "Completa Todos las Casillas",
-
-        icon: "error",
-        confirmButtonText: "Aceptar",
-      });
-    }
-  });
-
-  const renderIndi = () => {
-    preparados.innerHTML = "";
-
-    data.forEach((item, index) => {
-      const row = document.createElement("tr");
-      const idCelda = document.createElement("td");
-      const nombreCelda = document.createElement("td");
-      const salaCelda = document.createElement("td");
-      const camaCelda = document.createElement("td");
-      const entradaCelda = document.createElement("td");
-      const principalCelda = document.createElement("td");
-      const postreCelda = document.createElement("td");
-      const editar = document.createElement("button");
-      const eliminar = document.createElement("button");
-
-      idCelda.textContent = item.idIndi;
-      nombreCelda.textContent = item.nombreIndi;
-      salaCelda.textContent = item.salaIndi;
-      camaCelda.textContent = item.camaIndi;
-      entradaCelda.textContent = item.entradaIndi;
-      principalCelda.textContent = item.principalIndi;
-      postreCelda.textContent = item.postreIndi;
-      editar.textContent = "editar";
-      editar.addEventListener("click", function () {
-        editarData(index);
-      });
-
-      eliminar.textContent = "eliminar";
-      eliminar.addEventListener("click", function () {
-        eliminarData(index);
-      });
-
-      row.appendChild(idCelda);
-      row.appendChild(nombreCelda);
-      row.appendChild(salaCelda);
-      row.appendChild(camaCelda);
-      row.appendChild(entradaCelda);
-      row.appendChild(principalCelda);
-      row.appendChild(postreCelda);
-      row.appendChild(editar);
-      row.appendChild(eliminar);
-
-      preparados.appendChild(row);
-    });
-  };
-
-  const editarData = (index) => {
-    const item = data[index];
-
-    nombre.value = item.nombreIndi;
-    sala.value = item.salaIndi;
-    cama.value = item.camaIndi;
-    entrada.value = item.entradaIndi;
-    principal.value = item.principalIndi;
-    postre.value = item.postreIndi;
-
-    data.splice(index, 1);
-    renderIndi();
-    guardarEnLocal();
-  };
-
-  const eliminarData = (index) => {
-    data.splice(index, 1);
-    guardarEnLocal();
-    renderIndi();
-  };
-
   renderIndi();
-
-  const guardarEnLocal = () => {
-    localStorage.setItem("formdata", JSON.stringify(data));
-  };
 });
+
+// -----------------------------
+// FORMULARIO PACIENTE INDIVIDUAL
+// -----------------------------
+const nombre = document.querySelector(".indi-nombre");
+const sala = document.querySelector(".indi-sala");
+const cama = document.querySelector(".indi-cama");
+const entrada = document.querySelector(".indi-entrada");
+const principal = document.querySelector(".indi-principal");
+const postre = document.querySelector(".indi-postre");
+const preparados = document.querySelector("#indiPreparados");
+const indi = document.querySelector("#indi");
+
+const getRandomId = () => Math.floor(Math.random() * 9000) + 1000;
+let data = JSON.parse(localStorage.getItem("formdata")) || [];
+
+indi.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const idIndi = getRandomId();
+  const nombreIndi = nombre.value;
+  const salaIndi = sala.value;
+  const camaIndi = cama.value;
+  const entradaIndi = entrada.value;
+  const principalIndi = principal.value;
+  const postreIndi = postre.value;
+
+  if (
+    idIndi &&
+    nombreIndi &&
+    salaIndi &&
+    camaIndi &&
+    entradaIndi &&
+    principalIndi &&
+    postreIndi
+  ) {
+    const nuevaData = {
+      idIndi,
+      nombreIndi,
+      salaIndi,
+      camaIndi,
+      entradaIndi,
+      principalIndi,
+      postreIndi,
+    };
+    data.push(nuevaData);
+    guardarEnLocal();
+    renderIndi();
+    indi.reset();
+  } else {
+    Swal.fire({
+      title: "Completa todas las casillas",
+      icon: "error",
+      confirmButtonText: "Aceptar",
+    });
+  }
+});
+
+function renderIndi() {
+  preparados.innerHTML = "";
+
+  data.forEach((item, index) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${item.idIndi}</td>
+      <td>${item.nombreIndi}</td>
+      <td>${item.salaIndi}</td>
+      <td>${item.camaIndi}</td>
+      <td>${item.entradaIndi}</td>
+      <td>${item.principalIndi}</td>
+      <td>${item.postreIndi}</td>
+      <td><button onclick="editarData(${index})">editar</button></td>
+      <td><button onclick="eliminarData(${index})">eliminar</button></td>
+    `;
+    preparados.appendChild(row);
+  });
+}
+
+function editarData(index) {
+  const item = data[index];
+  nombre.value = item.nombreIndi;
+  sala.value = item.salaIndi;
+  cama.value = item.camaIndi;
+  entrada.value = item.entradaIndi;
+  principal.value = item.principalIndi;
+  postre.value = item.postreIndi;
+
+  data.splice(index, 1);
+  guardarEnLocal();
+  renderIndi();
+}
+
+function eliminarData(index) {
+  data.splice(index, 1);
+  guardarEnLocal();
+  renderIndi();
+}
+
+function guardarEnLocal() {
+  localStorage.setItem("formdata", JSON.stringify(data));
+}
