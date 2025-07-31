@@ -211,3 +211,12 @@ function eliminarData(index) {
 function guardarEnLocal() {
   localStorage.setItem("formdata", JSON.stringify(data));
 }
+
+// Hamburguesa para móviles
+const btnHamburguesa = document.querySelector("#hamburger");
+if (btnHamburguesa) {
+  btnHamburguesa.addEventListener("click", () => {
+    const menuLateral = document.querySelector(".menu-botones");
+    menuLateral.classList.toggle("activo");
+  });
+}

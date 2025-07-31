@@ -15,34 +15,32 @@
     <title>COOK MASTER</title>
   </head>
   <body>
-    <body>
-      <div style="text-align: center; margin: 20px 0;">
-        <img src="imagenes/image.png" alt="Logo CookMaster" style="height: 80px;" />
-      </div>
-    
-
+    <!-- Header con hamburguesa -->
+    <header class="header">
+      <img src="imagenes/image.png" alt="Logo CookMaster" class="logo" />
+    </header>
 
     <div class="menuGeneral">
       <div id="calendario"></div>
 
-      <!-- Nuevo layout en 3 columnas -->
+      <!-- Layout en 3 columnas -->
       <div id="layoutPrincipal">
         <!-- Columna izquierda: botones -->
         <section class="botones">
-          <button id="lunes-almuerzo">Lunes Almuerzo</button>
-          <button id="lunes-cena">Lunes Cena</button>
-          <button id="martes-almuerzo">Martes Almuerzo</button>
-          <button id="martes-cena">Martes Cena</button>
-          <button id="miercoles-almuerzo">Miércoles Almuerzo</button>
-          <button id="miercoles-cena">Miércoles Cena</button>
-          <button id="jueves-almuerzo">Jueves Almuerzo</button>
-          <button id="jueves-cena">Jueves Cena</button>
-          <button id="viernes-almuerzo">Viernes Almuerzo</button>
-          <button id="viernes-cena">Viernes Cena</button>
-          <button id="sabado-almuerzo">Sábado Almuerzo</button>
-          <button id="sabado-cena">Sábado Cena</button>
-          <button id="domingo-almuerzo">Domingo Almuerzo</button>
-          <button id="domingo-cena">Domingo Cena</button>
+          <button id="lunes-almuerzo">Lista 1 Almuerzo</button>
+          <button id="lunes-cena">Lista 1 Cena</button>
+          <button id="martes-almuerzo">Lista 2 Almuerzo</button>
+          <button id="martes-cena">Lista 2 Cena</button>
+          <button id="miercoles-almuerzo">Lista 3 Almuerzo</button>
+          <button id="miercoles-cena">Lista 3 Cena</button>
+          <button id="jueves-almuerzo">Lista 4 Almuerzo</button>
+          <button id="jueves-cena">Lista 4 Cena</button>
+          <button id="viernes-almuerzo">Lista 5 Almuerzo</button>
+          <button id="viernes-cena">Lista 5 Cena</button>
+          <button id="sabado-almuerzo">Lista 6 Almuerzo</button>
+          <button id="sabado-cena">Lista 6 Cena</button>
+          <button id="domingo-almuerzo">Lista 7 Almuerzo</button>
+          <button id="domingo-cena">Lista 7 Cena</button>
         </section>
 
         <!-- Columna centro: tabla del menú -->
@@ -71,7 +69,6 @@
           <button id="btnCalcular" class="btn btn-primary mt-2">
             Calcular
           </button>
-
           <div id="tablaIngredientes" class="mt-4"></div>
         </div>
       </div>
@@ -151,6 +148,11 @@
       <div id="contenedorPersonal" class="personal"></div>
     </div>
 
+    <!-- Footer -->
+    <footer class="footer">
+      © 2025 Paolo Coca · Presentación académica · Todos los derechos reservados
+    </footer>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
     <script
@@ -166,7 +168,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- Menús y lógica -->
     <script src="menus.js"></script>
     <script src="main.js"></script>
   </body>
