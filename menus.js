@@ -257,7 +257,7 @@ const menus = [
     id: 201,
     tipo: "almuerzo",
     principal: "CARNE AL HORNO C/ SALSA Y ENSALADA JARDINERA",
-    postre: "ENS. DE FRUTAS",
+    postre: "Fruta",
     regimen: "oficiales",
     ingredientes: [
       { nombre: "ACEITE DE GIRASOL", pb: 0.005, unidad: "litros" },
