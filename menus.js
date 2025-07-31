@@ -8,7 +8,10 @@ const menus = [
     ingredientes: [
       { nombre: "ACEITE DE GIRASOL", pb: 0.005, unidad: "litros" },
       { nombre: "PALETA SIN TAPA", pb: 0.16, unidad: "kg" },
-      { nombre: "PAPA BLANCA", pb: 0.44, unidad: "kg" },
+      { nombre: "ARVEJA SECA", pb: 0.03, unidad: "kg" },
+      { nombre: "PAPA BLANCA", pb: 0.15, unidad: "kg" },
+      { nombre: "ZANAHORIA", pb: 0.125, unidad: "kg" },
+      { nombre: "MORRON VERDE", pb: 0.007, unidad: "kg" },
     ],
     postreIngredientes: [{ nombre: "FRUTA", pb: 0.15, unidad: "kg" }],
   },
@@ -259,7 +262,10 @@ const menus = [
     ingredientes: [
       { nombre: "ACEITE DE GIRASOL", pb: 0.005, unidad: "litros" },
       { nombre: "PALETA SIN TAPA", pb: 0.16, unidad: "kg" },
-      { nombre: "PAPA BLANCA", pb: 0.44, unidad: "kg" },
+      { nombre: "ARVEJA SECA", pb: 0.03, unidad: "kg" },
+      { nombre: "PAPA BLANCA", pb: 0.15, unidad: "kg" },
+      { nombre: "ZANAHORIA", pb: 0.125, unidad: "kg" },
+      { nombre: "MORRON VERDE", pb: 0.007, unidad: "kg" },
     ],
     postreIngredientes: [{ nombre: "FRUTA", pb: 0.18, unidad: "kg" }],
   },
